@@ -65,4 +65,14 @@ Each generated layout clearly displays:
 ## 🗂️ Project Structure
     |---- Visualiser.py
     |---- Readme.md
+
+## ⚙️ Requirements
+- Python 3.x
+- Libraries:
+  - `numpy`
+  - `matplotlib`
+
+Install dependencies:
+```bash
+pip install numpy matplotlib
     
