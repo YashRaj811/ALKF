@@ -1,137 +1,43 @@
-# ALKF
-Layout Generator Assignment
-Overview
+# 🏗️ Layout Generator Assignment
 
-This project is a small program that automatically generates and visualizes multiple building layouts on a rectangular site while enforcing a set of geometric and proximity rules.
-The goal is to explore different valid configurations and clearly visualize rule compliance.
+## 📌 Overview
+This project implements an automated **layout generation and visualization tool** for a rectangular site.  
+The program explores multiple building configurations while enforcing geometric, spacing, and proximity rules.
 
-Site & Building Setup
-Site
+It generates **clear visual outputs** that make it easy to compare layouts and verify rule compliance.
 
-Rectangular site: 200 m × 140 m
+---
 
-Coordinate system: (0,0) at bottom-left to (200,140) at top-right
+## 📐 Site & Building Configuration
 
-Building Types
-Building	Footprint
-Tower A	30 m × 20 m
-Tower B	20 m × 20 m
-Central Plaza
+### Site
+- Size: **200 m × 140 m**
+- Coordinate System: `(0,0)` bottom-left → `(200,140)` top-right
 
-Reserved open space: 40 m × 40 m
+### Building Types
+| Type | Footprint |
+|-----|-----------|
+| Tower A | 30 m × 20 m |
+| Tower B | 20 m × 20 m |
 
-Located at the center of the site
+### Central Plaza
+- Size: **40 m × 40 m**
+- Location: Center of the site
+- Constraint: No buildings may overlap this area
 
-No building footprints may overlap this area
+---
 
-Placement Rules Enforced
+## 📏 Placement Rules
+The following rules are enforced during layout generation:
 
-All buildings must lie completely inside the site.
+1. All buildings must be fully inside the site.
+2. Minimum distance between any two buildings: **15 m (edge-to-edge)**.
+3. Minimum distance from any building to the site boundary: **10 m**.
+4. **Neighbour-mix rule**:  
+   Every Tower A must have at least **one Tower B within 60 m**.
+5. No building footprint may overlap the central plaza.
 
-Minimum distance between any two buildings: 15 m (edge-to-edge).
+---
 
-Minimum distance from any building to the site boundary: 10 m.
-
-Neighbour-mix rule:
-Every Tower A must have at least one Tower B within 60 m.
-
-No building may overlap the central plaza.
-
-Approach
-
-A random search / heuristic placement strategy is used.
-
-Buildings are placed iteratively while checking constraints.
-
-Invalid placements are rejected automatically.
-
-Multiple layouts are generated to explore different valid configurations.
-
-Visual Output
-
-Each generated layout includes:
-
-Site boundary
-
-Central plaza
-
-Building footprints
-
-Rule satisfaction status (shown in the plot title)
-
-Multiple layouts are displayed as separate plots for easy comparison.
-
-Colour Coding
-
-Black outline → Site boundary
-
-Light grey square → Central plaza
-
-Red rectangles → Tower A buildings
-
-Blue rectangles → Tower B buildings
-
-This colour scheme makes it easy to distinguish building types and verify constraints visually.
-
-Code Structure
-
-layout_generator.py
-
-Generates building layouts
-
-Validates all rules
-
-Visualizes layouts using plots
-
-The same script handles generation, validation, and visualization.
-
-Requirements
-
-Python 3.x
-
-Libraries:
-
-numpy
-
-matplotlib
-
-Install dependencies using:
-
-pip install numpy matplotlib
-
-How to Run
-
-Execute the following command:
-
-python layout_generator.py
-
-
-The program will automatically:
-
-Generate multiple layout configurations
-
-Validate rule compliance
-
-Display visual outputs for each layout
-
-Output
-
-Multiple visual layouts
-
-Clear indication of valid or violated rules
-
-Easy comparison between different configurations
-
-Possible Extensions
-
-Genetic or evolutionary optimization
-
-Interactive UI or sliders
-
-Export layouts to CAD/DXF/JSON formats
-
-Scoring-based optimization for density or open space
-
-Author Notes
-
-This solution prioritizes clarity, rule correctness, and visual interpretability, while remaining simple and extensible for future enhancements.
+## 🧠 Methodology
+- Uses a **random search with constraint checking** approach.
