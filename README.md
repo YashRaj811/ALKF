@@ -41,3 +41,28 @@ The following rules are enforced during layout generation:
 
 ## 🧠 Methodology
 - Uses a **random search with constraint checking** approach.
+- Buildings are placed iteratively.
+- Invalid placements are automatically rejected.
+- Multiple layouts are generated to explore different valid configurations.
+
+---
+
+## 🎨 Visual Output
+Each generated layout clearly displays:
+- Site boundary
+- Central plaza
+- Tower A and Tower B footprints
+- Rule compliance status (shown in the plot title)
+
+### Colour Coding
+- **Black outline** → Site boundary  
+- **Light grey square** → Central plaza  
+- **Red rectangles** → Tower A  
+- **Blue rectangles** → Tower B  
+
+---
+
+## 🗂️ Project Structure
+    |---- Visualiser.py
+    |---- Readme.md
+    
